@@ -1,0 +1,250 @@
+
+
+.nav-strip-wrapper {
+  background-color: #121921;
+  padding: 3px 12px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  color: white;
+  display: flex;
+}
+
+/* ______________ */
+.nav_right_side {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+}
+
+.nav_logo {
+  padding: 10px 5px;
+}
+.nav_logo img {
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.nav_logo:hover {
+  cursor: pointer;
+  border: 1px solid #ccc; /* Add border style */
+}
+
+.nav_delivery_wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+  min-width: 120px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 5px;
+}
+.nav_delivery_wrapper:hover {
+  cursor: pointer;
+  min-width: 100px;
+  border: 1px solid #ccc; /* Add border style */
+}
+.nav_delivery_icon {
+  width: 100%;
+  height: 20px;
+  padding-left: 3px;
+  font: 800;
+}
+.nav_delivery {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav_user_name {
+  color: rgb(187, 184, 184);
+  padding: 0;
+  margin-bottom: -4px;
+  font-size: 9px;
+}
+.nav_user_address {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* ...................... */
+/* middle section  */
+.nav_middle_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  margin: 5px 10px;
+  min-width: 200px;
+  flex: 1;
+}
+
+.nav_middle_section select {
+  padding: 13px;
+  outline: 1px solid white;
+  background-color: #ccc;
+  font-size: 12px;
+}
+
+.nav_middle_section input {
+  padding: 10px;
+  font-size: 13px;
+  outline: 1px solid white;
+}
+
+.nav_search_dropdown {
+  height: 30px;
+  width: 50px;
+  font-size: 11px; /* Adjust the font size as needed */
+}
+
+.nav_middle_section select {
+  border: none;
+}
+
+.search_bar {
+  height: 30px;
+  background-color: white;
+  border: 1px solid #ccc; /* Add border to clearly define the input field */
+}
+
+.nav_middle_section input {
+  border: 1px solid white;
+  width: 100%;
+}
+
+.nav_middle_section:focus-within {
+  border: 2px solid #ed9a2e;
+}
+
+.nav_search_icon {
+  background-color: #fdbd69;
+  padding: 9px;
+}
+.nav_middle_section svg {
+  color: #1a1a1a;
+}
+
+.nav_middle_section svg:hover {
+  background-color: #f79719;
+}
+
+/* ....................... */
+/* Left side */
+.nav_left_side {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  max-width: 400px;
+  gap: 10px;
+}
+
+.nav_left_side select {
+  border: none;
+}
+
+.nav_launuage_choice {
+  background-color: transparent;
+  border-left: none;
+  padding: 10px 0; 
+  min-width: 80px;
+}
+
+.nav_launuage_choice img {
+  width: 30px;
+  height: auto;
+  object-fit: contain ;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.nav_launuage_choice:hover {
+  cursor: pointer;
+  border: 1px solid #ccc; /* Add border style */
+}
+
+.lanuage_list {
+  color: white;
+  background-color: #121921;
+  border-left: none;
+  font-size: x-small;
+  font-weight: 700;
+}
+
+.account_list_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-items: start;
+  padding: 10px 0;
+}
+
+.account_list_wrapper:hover {
+  cursor: pointer;
+  border: 1px solid #ccc; /* Add border style */
+}
+
+.nav_top_discription {
+  color: rgb(187, 184, 184);
+  padding: 0;
+  font-size: 9px;
+}
+
+.nav_bottom_discription {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.nav_account_list {
+  background-color: #121921;
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nav_cart_icon {
+  width: 40px;
+  text-align: center;
+  height: 30px;
+}
+.nav_cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.nav_cart:hover {
+  cursor: pointer;
+  border: 1px solid #ccc; /* Add border style */
+}
+
+.nav_cart_count_section {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav_cart_count {
+  color: #ed9a2e;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  top: 7px;
+  right: 0px;
+}
+@media (max-width: 768px) {
+}
