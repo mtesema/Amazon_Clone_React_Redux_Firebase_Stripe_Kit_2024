@@ -1,32 +1,19 @@
 .lower_container {
   background-color: #22303e;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
   margin-top: 58px;
   color: white;
   display: flex;
-  min-width: 100%;
 }
 
-.lower_container ul {
-  display: flex;
-  list-style-type: none;
-
-  gap: 15px;
-}
-.lower_container ul li {
-  display: flex;
-
-  justify-content: center;
-  font-size: 11px;
-
-}
-.lower_container ul li a {
-  text-decoration: none;
-  color: white;
-}
 .nav_menu {
   display: flex;
-
   align-items: center;
+  padding-left: 10px;
+  padding-right: 20px;
 }
 
 .nav_menu p {
@@ -34,4 +21,37 @@
   margin: 0;
   font-size: 12px;
   font-weight: 700;
+}
+
+.lower_container ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.lower_container ul li {
+  list-style: none;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+
+.lower_container ul li select {
+  background-color: #22303e;
+  color: white;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lower_container ul li a {
+  text-decoration: none;
+  color: white;
 }

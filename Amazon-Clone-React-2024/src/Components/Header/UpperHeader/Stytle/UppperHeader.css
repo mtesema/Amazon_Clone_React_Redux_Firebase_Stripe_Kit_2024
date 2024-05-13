@@ -88,7 +88,7 @@
 }
 
 .nav_middle_section select {
-  padding: 13px;
+  padding: 12px;
   outline: 1px solid white;
   background-color: #ccc;
   font-size: 12px;
@@ -118,6 +118,7 @@
 
 .nav_middle_section input {
   border: 1px solid white;
+  min-width: 100px;
   width: 100%;
 }
 
@@ -127,7 +128,7 @@
 
 .nav_search_icon {
   background-color: #fdbd69;
-  padding: 9px;
+  padding: 10px;
 }
 .nav_middle_section svg {
   color: #1a1a1a;
@@ -187,6 +188,7 @@
   justify-content: center;
   align-items: start;
   padding: 10px 0;
+  text-wrap: nowrap;
 }
 
 .account_list_wrapper:hover {
