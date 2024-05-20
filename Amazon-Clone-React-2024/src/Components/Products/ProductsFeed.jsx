@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductsFeedProps from "./ProductsFeedProps";
-import ProductRequests from "../../Requests/Request";
+import ProductRequests from "../../Requests/ProductsRequest";
 import axios from "axios";
 
 function ProductsFeed() {
@@ -27,7 +27,7 @@ function ProductsFeed() {
 
   return (
     <div className="product_feed_main_container">
-      {products.map((product) => (
+      {products?.map((product) => (
         <ProductsFeedProps key={product.id} product={product} />
       ))}
     </div>

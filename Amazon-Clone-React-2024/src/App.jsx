@@ -1,13 +1,15 @@
 import { useState } from "react";
 
 import "./App.css";
-import HomePage from "./Pages/HomePage";
+import Rounting from "./Pages/Rounter";
+
 
 
 function App() {
   return (
     <>
-      <HomePage />
+  
+      <Rounting />
     </>
   );
 }

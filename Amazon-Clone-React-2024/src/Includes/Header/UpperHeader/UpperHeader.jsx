@@ -5,8 +5,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { FaSearch } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+  const Navigate = useNavigate();
+
+  const HomePageClickHandle = () => {
+    Navigate("/");
+  };
+
+  const profilePageClickHandle = () => {
+    Navigate("/signup");
+  };
   
 
   return (
@@ -17,7 +27,7 @@ function Header() {
         <div className="nav-strip-wrapper text-white">
           <div className="nav_right_side">
             <div className="nav_logo">
-              <img src={images.amazon_header_log} alt="" />
+              <img onClick={HomePageClickHandle} src={images.amazon_header_log} alt="Amazon Logo" />
             </div>
             <div className="nav_delivery_wrapper">
               <div>
@@ -58,7 +68,7 @@ function Header() {
               <div className="nav_top_discription px-1 text-white">
                 Hello, Name
               </div>
-              <select className="nav_account_list" name="" id="">
+              <select  onClick={profilePageClickHandle} className="nav_account_list" name="" id="">
                 <option value="">Account&List</option>
               </select>
             </div>

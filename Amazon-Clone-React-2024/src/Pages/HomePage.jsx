@@ -1,17 +1,20 @@
 import React from "react";
-import Header from "../Components/Header/Header";
+
 import Banner from "../Components/BannerCaroursel/Banner";
 import CatagoryProductFeed from "../Components/CatagoryProductFeed/CatagoryFeed";
 import ProductsFeed from "../Components/Products/ProductsFeed";
+import Includes from "../Includes/Includes";
 
 function HomePage() {
   return (
-    <>
-      <Header />
+    <Includes>
+   
       <Banner />
       <CatagoryProductFeed />
       <ProductsFeed />
-    </>
+      
+    </Includes>
+
   );
 }
 
