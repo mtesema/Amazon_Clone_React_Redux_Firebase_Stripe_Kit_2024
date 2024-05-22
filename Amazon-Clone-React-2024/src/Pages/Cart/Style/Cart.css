@@ -1,8 +1,22 @@
 .checkout {
+  margin-top: 100px;
+  padding: 20px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 20px;
   background-color: white;
+  height: 100%;
   height: max-content;
+  background-color: #EAEDED;
+}
+
+
+.checkout__wrapper {
+  width: 1400px;
+  height: auto;
+  background-color: white;
+
 }
 
 .checkout__ad {
@@ -10,8 +24,22 @@
   margin-bottom: 10px;
 }
 
+
+
 .checkout__title {
   margin-right: 10px;
-  padding: 10px;
-  border-bottom: 1px solid lightgray;
+  padding-left: 10px;
+  font-size: 40px;
+
+}
+
+.checkout__deslect {
+  font-size: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 0;
+
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(3, 92, 128);
 }
