@@ -1,23 +1,34 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./Stytle/UppperHeader.css"
+import React, { useContext, useState } from "react";
+import { useGeolocated } from "react-geolocated";
+import "./Stytle/UppperHeader.css";
 import images from "../../../Resource/images";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaSearch } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
+import { StateContext } from "../../../Utility/StateProvider";
 
 function Header() {
   const Navigate = useNavigate();
+  const [location, setLocation] = useState(null);
+
+
+
+  const [{ basket }, dispatch] = useContext(StateContext);
+  console.log(basket);
 
   const HomePageClickHandle = () => {
     Navigate("/");
   };
 
+  const CartPageClickHandle = () => {
+    Navigate("/cart");
+  };
+
   const profilePageClickHandle = () => {
     Navigate("/signup");
   };
-  
 
   return (
     <>
@@ -27,7 +38,11 @@ function Header() {
         <div className="nav-strip-wrapper text-white">
           <div className="nav_right_side">
             <div className="nav_logo">
-              <img onClick={HomePageClickHandle} src={images.amazon_header_log} alt="Amazon Logo" />
+              <img
+                onClick={HomePageClickHandle}
+                src={images.amazon_header_log}
+                alt="Amazon Logo"
+              />
             </div>
             <div className="nav_delivery_wrapper">
               <div>
@@ -46,11 +61,7 @@ function Header() {
               <option value="">All</option>
             </select>
 
-            <input
-              type="text"
-              placeholder="Search Amazon"
-             
-            />
+            <input type="text" placeholder="Search Amazon" />
             <div className="nav_search_icon">
               <FaSearch size={20} />
             </div>
@@ -68,7 +79,12 @@ function Header() {
               <div className="nav_top_discription px-1 text-white">
                 Hello, Name
               </div>
-              <select  onClick={profilePageClickHandle} className="nav_account_list" name="" id="">
+              <select
+                onClick={profilePageClickHandle}
+                className="nav_account_list"
+                name=""
+                id=""
+              >
                 <option value="">Account&List</option>
               </select>
             </div>
@@ -77,9 +93,9 @@ function Header() {
               <div className="nav_bottom_discription">& Orders</div>
             </div>
 
-            <div className="nav_cart">
+            <div onClick={CartPageClickHandle} className="nav_cart">
               <div className="nav_cart_count_section">
-                <span className="nav_cart_count">4</span>
+                <span className="nav_cart_count">{basket.length}</span>
                 <PiShoppingCartSimpleBold className="nav_cart_icon" />
               </div>
               <span>cart</span>
@@ -87,7 +103,6 @@ function Header() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

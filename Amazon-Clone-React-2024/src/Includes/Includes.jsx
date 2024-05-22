@@ -1,13 +1,15 @@
-import React from 'react'
-import Header from '../Includes/Header/Header'
-function Includes({children}) {
+import React from "react";
+import Header from "../Includes/Header/Header";
+import Footer from "./Footer/Footer";
+
+function Includes({ children }) {
   return (
     <div>
-        <Header  />
-        {children}
-    </div >
-
-  )
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
 }
 
-export default Includes
+export default Includes;

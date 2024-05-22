@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Rating from "@mui/material/Rating";
 
-import "./Style/ProducstsFeed.css";
+import "./Style/ProductsFeed.css";
+import { Link } from "react-router-dom";
+import {formatPrice} from '../../Utility/formatCurrency '
+import { StateContext } from "../../Utility/StateProvider";
 
 function ProductsFeedProps({ product }) {
   const truncateText = (text, maxLength) => {
@@ -11,41 +14,47 @@ function ProductsFeedProps({ product }) {
     return text.substring(0, maxLength) + "...";
   };
 
+  const [state, dispatch] = useContext(StateContext);
 
-    // Function to split the price into whole number and decimal parts
-    const formatPrice = (price) => {
-      const [wholeNumber, decimalPart] = price.toString().split(".");
-      return (
-        <span>
-          <sup className="price_superscript">$</sup>
-          {wholeNumber}
-          <sup className="price_superscript">{decimalPart}</sup>
-        </span>
-      );
-    };
+  const addToCartHandlet = () =>{
+    dispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id: product.id,
+        title: product.title,
+        image: product.image,
+        price: product.price,
+        rating: product.rating,
+      },
+    });
+  }
+
 
   return (
     <div className="Product_Feed_Container">
-      <a href="">
+      <Link to={`products/${product.id}`}>
         <img src={product.image} alt={product.title} />
-      </a>
+      </Link>
       <div>
         <h3>{truncateText(product.title, 25)}</h3>
         <div className="Product_rating">
           {/* rating */}
           <p>{product.rating.rate}</p>
-          <Rating className="rating_stars" value={product.rating.rate} precision={0.1} size="small" />
+          <Rating
+            className="rating_stars"
+            value={product.rating.rate}
+            precision={0.1}
+            size="small"
+          />
 
           {/* number of reviews */}
           <small>{product.rating.count}</small>
 
           {/* price */}
         </div>
-        <div className="product_feed_pricing">
-        {formatPrice(product.price)}
-        </div>
+        <div className="product_feed_pricing">{formatPrice(product.price)}</div>
         {/* add to cart button */}
-        <button className="product_feed_button">
+        <button className="product_feed_button" onClick={addToCartHandlet}>
           <small>Add to cart</small>
         </button>
       </div>

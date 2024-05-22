@@ -7,14 +7,16 @@ import "./Style/Header.css";
 function Header() {
   return (
     <>
-      <section className="upper-header">
-        {/* Upper Header  */}
-        <UpperHeader />
-      </section>
+      <section className="main-header-wrapper">
+        <section className="upper-header">
+          {/* Upper Header  */}
+          <UpperHeader />
+        </section>
 
-      <section className="lower-headern">
-        {/* Lower Header */}
-        <LowerHeader />
+        <section className="lower-headern">
+          {/* Lower Header */}
+          <LowerHeader />
+        </section>
       </section>
     </>
   );

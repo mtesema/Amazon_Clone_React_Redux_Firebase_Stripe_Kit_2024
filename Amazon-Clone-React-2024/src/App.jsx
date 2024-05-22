@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import "./App.css";
-import Rounting from "./Pages/Rounter";
+import Routing from "./Pages/Router";
 
 
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
   
-      <Rounting />
+      <Routing />
     </>
   );
 }

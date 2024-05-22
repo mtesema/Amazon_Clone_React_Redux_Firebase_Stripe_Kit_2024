@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const CatagoryAPIBaseURL = axios.create({
-  baseURL: 'https://fakestoreapi.com/products',
+const APIBaseURL = axios.create({
+  baseURL: "https://fakestoreapi.com/products",
 });
 
-export default CatagoryAPIBaseURL;
+export default APIBaseURL;
 
 
 

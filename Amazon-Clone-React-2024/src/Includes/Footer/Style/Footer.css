@@ -1,0 +1,162 @@
+/* General styles for the entire footer */
+.footer_backtop{
+    /* height: 30px; */
+    text-align: center;
+    background-color: #323d4c;
+    padding: 13px;
+    cursor: pointer;
+}
+.footer_backtop:hover{
+    background-color: #37475a;
+}
+.footer_backtop > div{
+    margin-top: 8px;
+
+}
+.footer_backtop > div a{
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer {
+  background-color: #232F3E;
+  color: #dddddd;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 50px 0;
+}
+
+/* Top section */
+.footer-top {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1240px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 0 250px; /* Adjust width of sections */
+  margin-bottom: 40px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: #dddddd;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+/* Middle section */
+.middle-footer {
+  background-color: #232f3e;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+
+}
+
+.middle-footer .footer_icon {
+  display: flex;
+  gap: 120px;
+  justify-content: center;
+}
+
+.middle-footer .footer_logo img {
+  width: 120px; /* Adjust size of the logo */
+  height: auto;
+}
+
+.middle-footer .footer_lang select {
+  padding: 8px;
+  padding-right: 50px;
+  color: white;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+ .footer_lang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 20px;
+ }
+
+.middle-footer .footer_lang select:focus {
+  outline: none;
+  border-color: #0056b3; /* Change border color on focus */
+}
+
+/* Bottom section */
+.lower-footer{
+background-color: #131a22;
+}
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+  
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1240px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.footer-bottom .footer-section {
+  flex: 1 0 250px; /* Adjust width of sections */
+  margin-bottom: 40px;
+}
+
+.footer-bottom .footer-section h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-bottom .footer-section p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #999999;
+}
+
+/* Legal info at the bottom */
+.legal-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.legal-info a {
+  text-decoration: none;
+  color: #999999;
+  margin: 0 10px;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+}

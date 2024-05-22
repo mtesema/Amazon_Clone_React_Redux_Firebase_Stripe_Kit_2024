@@ -1,14 +1,14 @@
 import React from "react";
-import "./Style/CatagoryProductFeed.css"
+import "./Style/CategoryProductFeed.css"
 import {Link} from "react-router-dom"
 
-function CatagoryFeedProbs({ data }) {
+function CategoryFeedProbs({ data }) {
   // console.log(data);
   const { title,name, imgLink } = data;
 
   return (
     <div className="catagory">
-      <Link to={`/catagory/${name}`}>
+      <Link to={`/category/${name}`}>
         <span className="text-black">
           <h2>{title}</h2>
         </span>
@@ -19,4 +19,4 @@ function CatagoryFeedProbs({ data }) {
   );
 }
 
-export default CatagoryFeedProbs;
+export default CategoryFeedProbs;
