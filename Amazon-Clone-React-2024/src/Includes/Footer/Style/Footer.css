@@ -1,10 +1,12 @@
-/* General styles for the entire footer */
+.footer{
+  position: relative;
+}
 .footer_backtop{
     /* height: 30px; */
     text-align: center;
     background-color: #323d4c;
     padding: 13px;
-    cursor: pointer;
+
 }
 .footer_backtop:hover{
     background-color: #37475a;

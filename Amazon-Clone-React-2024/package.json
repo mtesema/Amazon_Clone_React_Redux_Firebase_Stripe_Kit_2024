@@ -17,6 +17,7 @@
     "@types/react-currency-format": "^1.0.4",
     "axios": "^1.7.1",
     "bootstrap": "^5.3.3",
+    "firebase": "^10.12.1",
     "intl": "^1.2.5",
     "latest-version": "^9.0.0",
     "next": "^14.2.3",

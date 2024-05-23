@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Includes from "../../Includes/Includes";
-import APIBaseURL from "../../Requests/APIBaseURL";
+import APIBaseURL from "../../Utility/Requests/APIBaseURL";
 import "./Style/ProductDetailPage.css";
 import Rating from "@mui/material/Rating";
-import Loading from "../../Components/Loading/Loading"
+import Loading from "../../Components/Loading/Loading";
 import { StateContext } from "../../Utility/StateProvider";
-import {formatPrice} from '../../Utility/formatCurrency '
+import { formatPrice } from "../../Utility/formatCurrency ";
 
 function ProductDetailPage() {
   const [product, setProduct] = useState({});
@@ -20,7 +20,6 @@ function ProductDetailPage() {
         const response = await APIBaseURL.get(`/${productId}`);
         setLoading(false);
         setProduct(response.data); // Store the product data in state
-
       } catch (error) {
         setLoading(false);
         console.error("Error fetching product data:", error);
@@ -33,26 +32,24 @@ function ProductDetailPage() {
   }, [productId]); // Add productId to the dependency array
   console.log(product);
 
+  const { id, title, image, description, rating, price } = product;
 
-   const { id, title, image, description, rating, price } = product;
-  
-   const [state, dispatch] = useContext(StateContext);
-   console.log(state);
+  const [state, dispatch] = useContext(StateContext);
+  console.log(state);
 
-   const addToCartHandlet = () => {
-     dispatch({
-       type: "ADD_TO_BASKET",
-       item: {
-         id,
+  const addToCartHandlet = () => {
+    dispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id,
         title,
-         image,
-         price,
-         rating,
-       },
-     });
-   };
-
-
+        image,
+        price,
+        rating,
+        description,
+      },
+    });
+  };
 
   return (
     <div>

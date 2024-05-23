@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductsFeedProps from "./ProductsFeedProps";
-import ProductRequests from "../../Requests/ProductsRequest";
+import ProductRequests from "../../Utility/Requests/ProductsRequest";
 import axios from "axios";
 import Loading from "../../Components/Loading/Loading";
 import './Style/ProductsFeed.css'

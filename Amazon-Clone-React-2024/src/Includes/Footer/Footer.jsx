@@ -1,13 +1,22 @@
 import React from "react";
 import "./Style/Footer.css";
+import {useNavigate} from 'react-router-dom'
 
 
 function Footer() {
+  const navigate = useNavigate()
+
+  const HomePageClickHandle = () => {
+    navigate("/")
+  };
+
   return (
-    <section>
+    <section className="footer">
       <div className="footer_backtop">
         <div>
-          <a href="">Bact to top</a>
+          <a onClick={HomePageClickHandle} href="">
+            Bact to top
+          </a>
         </div>
       </div>
 
@@ -159,17 +168,13 @@ function Footer() {
         <div className="middle-footer">
           <div className="footer_icon">
             <div className="footer_logo">
-              <img
-                src="../../../public/Amazonlogo.png"
-                alt="Amazon-Logo"
-              />
+              <img src="../../../public/Amazonlogo.png" alt="Amazon-Logo" />
             </div>
             <div className="footer_lang">
               <select>
                 <option value="English">English</option>
                 <option value="Hindi">Hindi</option>
               </select>
-              
             </div>
           </div>
         </div>

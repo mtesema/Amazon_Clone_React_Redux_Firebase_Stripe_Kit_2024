@@ -1,5 +1,5 @@
 import React from "react";
-import "./Style/CheckoutProduct.css";
+import "./Style/Subtotal.css";
 import { useStateValue } from "../../Utility/StateProvider";
 import { getBasketTotal } from "../../Utility/Reducer";
 import { useNavigate } from "react-router-dom";
@@ -23,5 +23,6 @@ function Subtotal() {
     </div>
   );
 }
+ 
 
 export default Subtotal;

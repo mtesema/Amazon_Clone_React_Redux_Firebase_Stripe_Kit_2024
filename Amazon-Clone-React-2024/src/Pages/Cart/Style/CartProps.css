@@ -1,0 +1,154 @@
+.checkoutProduct {
+  display: flex;
+  width: 1300px;
+  height: 500px;
+  background-color: white;
+
+
+}
+
+.checkoutProduct__image {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  margin-right: 20px;
+  margin-left: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkoutProduct__info {
+  flex: 1;
+  padding-left: 20px;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 100px;
+  
+}
+
+.checkoutProduct__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkoutProduct__title {
+  font-size: 17px;
+  font-weight: 800;
+}
+.checkoutProduct__description{
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.check-out-instock{
+  color: green;
+  font-weight: 800;
+  font-size: 15px;
+  margin-top: 3px;
+  margin-bottom: 0;
+}
+.check-out-prime{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0;
+  font-size: 10px;
+  gap: 2px;
+
+}
+.checkoutProduct__details img{
+  width: 50px;
+  height: auto;
+  margin-right: 5px;
+
+}
+
+
+.checkoutProduct__details small {
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.checkoutProduct__price {
+  margin-top: 5px;
+}
+
+.checkoutProduct__rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px; 
+  margin-bottom: 0;
+  font-size: 15px;
+  gap: 15px;
+
+}
+
+.checkoutProduct__quantityContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.checkoutProduct__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #555;
+  cursor: pointer;
+  outline: none;
+}
+
+.checkoutProduct__button:hover {
+  background-color: #f0f0f0;
+}
+
+.checkoutProduct__quantity {
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.checkoutProduct__removeButton {
+  width: 130px;
+  background-color: #f0c14b;
+  border: 1px solid;
+  margin-top: 10px;
+  padding: 5px;
+  cursor: pointer;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 10px;
+  color: #111;
+  transition: all 0.3s ease;
+  
+
+}
+
+.checkoutProduct__removeButton:hover {
+  background-color: #ddb347;
+}
+.checkoutProduct__removeWarpper{
+margin-bottom: 2000px;
+}
+.checkoutProduct_subtotal {
+  
+  border-bottom: rgb(212, 212, 212) solid .6px;
+  margin-right: 50px;
+  margin-left: 50px;
+}

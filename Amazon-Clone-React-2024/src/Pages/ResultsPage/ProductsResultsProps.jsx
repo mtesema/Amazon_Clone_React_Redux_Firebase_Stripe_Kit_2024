@@ -30,6 +30,7 @@ function ProductsResultsProps({ data }) {
         image: data.image,
         price: data.price,
         rating: data.rating,
+        description: data.description
       },
     });
   }

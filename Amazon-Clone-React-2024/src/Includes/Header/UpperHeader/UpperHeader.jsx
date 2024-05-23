@@ -16,7 +16,7 @@ function Header() {
 
 
   const [{ basket }, dispatch] = useContext(StateContext);
-  console.log(basket);
+  // console.log(basket);
 
   const HomePageClickHandle = () => {
     Navigate("/");

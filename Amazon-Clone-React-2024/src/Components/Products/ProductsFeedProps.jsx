@@ -25,6 +25,7 @@ function ProductsFeedProps({ product }) {
         image: product.image,
         price: product.price,
         rating: product.rating,
+        description: product.description
       },
     });
   }

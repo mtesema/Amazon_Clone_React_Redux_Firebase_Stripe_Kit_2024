@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Includes from "../../Includes/Includes";
 import { useParams } from "react-router-dom";
-import APIBaseURL from "../../Requests/APIBaseURL";
+import APIBaseURL from "../../Utility/Requests/APIBaseURL";
 import ProductsResultsProps from "./ProductsResultsProps";
 import Loading from '../../Components/Loading/Loading'
 
