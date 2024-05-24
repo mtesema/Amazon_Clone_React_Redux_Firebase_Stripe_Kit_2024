@@ -1,6 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyArMDzfxrZkB8ynH88eW-WKkWC0AK1Z960",
@@ -22,6 +23,8 @@ const db = firebaseApp.firestore();
 // ` To use fire base authentication service
 
 const auth = firebase.auth();
+
+// ` To use fire base authentication service
 
 export { auth };
 export default db;

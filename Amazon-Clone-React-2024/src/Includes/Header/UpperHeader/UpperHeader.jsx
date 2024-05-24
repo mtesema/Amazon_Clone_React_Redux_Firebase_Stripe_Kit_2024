@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { useGeolocated } from "react-geolocated";
+import React, { useContext } from "react";
 import "./Stytle/UppperHeader.css";
 import images from "../../../Resource/images";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,15 +7,16 @@ import { GrLocation } from "react-icons/gr";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import { StateContext } from "../../../Utility/StateProvider";
+import { auth } from "../../../Utility/firebase/firebase";
 
 function Header() {
   const Navigate = useNavigate();
-  const [location, setLocation] = useState(null);
+  const [{ basket, user }] = useContext(StateContext);
 
+  const firstName = user?.displayName
+    ? user.displayName.split(" ")[0]
+    : "Guest";
 
-
-  const [{ basket }, dispatch] = useContext(StateContext);
-  // console.log(basket);
 
   const HomePageClickHandle = () => {
     Navigate("/");
@@ -26,84 +26,97 @@ function Header() {
     Navigate("/cart");
   };
 
-  const profilePageClickHandle = () => {
-    Navigate("/signup");
+  const handleSelectChange = (event) => {
+    const selectedOption = event.target.value;
+
+    if (selectedOption === "profile") {
+      Navigate("/signup");
+    } else if (selectedOption === "login") {
+      Navigate("/login");
+    } else if (selectedOption === "logout") {
+      auth
+        .signOut()
+        .then(() => {
+          Navigate("/signup");
+        })
+        .catch((error) => {
+          console.error("Error signing out:", error.message);
+        });
+    }
   };
 
   return (
-    <>
-      <section>
-        {/* Top Nav */}
-        {/* Right Side */}
-        <div className="nav-strip-wrapper text-white">
-          <div className="nav_right_side">
-            <div className="nav_logo">
-              <img
-                onClick={HomePageClickHandle}
-                src={images.amazon_header_log}
-                alt="Amazon Logo"
-              />
-            </div>
-            <div className="nav_delivery_wrapper">
-              <div>
-                <GrLocation className="nav_delivery_icon" />
-              </div>
-              <div className="nav_delivery text-white">
-                <p className="nav_user_name ">Deliver to Michael</p>
-                <p className="nav_user_address ">Lorton 22079</p>
-              </div>
-            </div>
+    <section>
+      <div className="nav-strip-wrapper text-white">
+        <div className="nav_right_side">
+          <div className="nav_logo">
+            <img
+              onClick={HomePageClickHandle}
+              src={images.amazon_header_log}
+              alt="Amazon Logo"
+            />
           </div>
-
-          {/* Middle portion */}
-          <div className="nav_middle_section">
-            <select name="" id="">
-              <option value="">All</option>
-            </select>
-
-            <input type="text" placeholder="Search Amazon" />
-            <div className="nav_search_icon">
-              <FaSearch size={20} />
+          <div className="nav_delivery_wrapper">
+            <div>
+              <GrLocation className="nav_delivery_icon" />
             </div>
-          </div>
-
-          {/* Left side */}
-          <div className="nav_left_side">
-            <div className="nav_launuage_choice">
-              <img src={images.Flag_icon} alt="" />
-              <select className="lanuage_list" name="" id="">
-                <option value="">EN</option>
-              </select>
-            </div>
-            <div className="account_list_wrapper">
-              <div className="nav_top_discription px-1 text-white">
-                Hello, Name
-              </div>
-              <select
-                onClick={profilePageClickHandle}
-                className="nav_account_list"
-                name=""
-                id=""
-              >
-                <option value="">Account&List</option>
-              </select>
-            </div>
-            <div className="account_list_wrapper">
-              <div className="nav_top_discription text-white">Returns </div>
-              <div className="nav_bottom_discription">& Orders</div>
-            </div>
-
-            <div onClick={CartPageClickHandle} className="nav_cart">
-              <div className="nav_cart_count_section">
-                <span className="nav_cart_count">{basket.length}</span>
-                <PiShoppingCartSimpleBold className="nav_cart_icon" />
-              </div>
-              <span>cart</span>
+            <div className="nav_delivery text-white">
+              <p className="nav_user_name">Deliver to {firstName}</p>
+              <p className="nav_user_address">Lorton 22079</p>
             </div>
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="nav_middle_section">
+          <select name="" id="">
+            <option value="">All</option>
+          </select>
+
+          <input type="text" placeholder="Search Amazon" />
+          <div className="nav_search_icon">
+            <FaSearch size={20} />
+          </div>
+        </div>
+
+        <div className="nav_left_side">
+          <div className="nav_launuage_choice">
+            <img src={images.Flag_icon} alt="" />
+            <select className="lanuage_list" name="" id="">
+              <option value="">EN</option>
+            </select>
+          </div>
+          <div className="account_list_wrapper">
+            <div className="nav_top_discription px-1 text-white">
+              Hello, {firstName}
+            </div>
+            <select
+              className="nav_account_list"
+              onChange={handleSelectChange}
+              name=""
+              id=""
+            >
+              <option value="">Account & List</option>
+              <option value="login">Login</option>
+              <option value="profile">Profile</option>
+              <option value="logout">Logout</option>
+            </select>
+          </div>
+
+          <div className="account_list_wrapper">
+            <div className="nav_top_discription text-white">Returns </div>
+            <div className="nav_bottom_discription">& Orders</div>
+          </div>
+
+          <div onClick={CartPageClickHandle} className="nav_cart">
+            <div className="nav_cart_count_section">
+              <span className="nav_cart_count">{basket.length}</span>
+              <PiShoppingCartSimpleBold className="nav_cart_icon" />
+            </div>
+            <span>cart</span>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

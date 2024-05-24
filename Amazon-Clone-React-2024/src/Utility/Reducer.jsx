@@ -3,7 +3,6 @@ export const initialState = {
   user: null,
 };
 
-// Selector
 export const getBasketTotal = (basket) =>
   basket?.reduce((amount, item) => item.price * item.quantity + amount, 0);
 
@@ -11,7 +10,9 @@ const reducer = (state, action) => {
   console.log("action>>>", action);
   switch (action.type) {
     case "ADD_TO_BASKET":
-      const index = state.basket.findIndex((item) => item.id === action.item.id);
+      const index = state.basket.findIndex(
+        (item) => item.id === action.item.id
+      );
       if (index >= 0) {
         return {
           ...state,
@@ -34,7 +35,9 @@ const reducer = (state, action) => {
           return {
             ...state,
             basket: state.basket.map((basketItem, i) =>
-              i === itemIndex ? { ...basketItem, quantity: basketItem.quantity - 1 } : basketItem
+              i === itemIndex
+                ? { ...basketItem, quantity: basketItem.quantity - 1 }
+                : basketItem
             ),
           };
         } else {
@@ -44,7 +47,9 @@ const reducer = (state, action) => {
           };
         }
       } else {
-        console.warn(`Can't remove product (id: ${action.id}) as it's not in the basket!`);
+        console.warn(
+          `Can't remove product (id: ${action.id}) as it's not in the basket!`
+        );
       }
       return state;
 

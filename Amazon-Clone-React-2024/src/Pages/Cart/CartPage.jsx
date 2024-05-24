@@ -6,28 +6,31 @@ import Includes from "../../Includes/Includes";
 import { getBasketTotal } from "../../Utility/Reducer";
 import CartProps from "./CartProps";
 import { formatCurrency } from "../../Utility/formatCurrency ";
+import { IoLogoCapacitor } from "react-icons/io5";
 
 function CartPage() {
   const [{ basket, user }] = useStateValue();
+  console.log(user);
 
   const basketTotal = getBasketTotal(basket);
 
-  console.log("this is the basket >>>", basket);
+  const firstName = user?.displayName
+    ? user.displayName.split(" ")[0]
+    : "Guest";
 
   return (
     <Includes>
       <div className="checkout">
         <div>
-          <h3 className="checkout_account">Hello, {user?.email}</h3>
+          <h3 className="checkout_account">Hello, {firstName}</h3>
           <div className="checkout__left">
             <div>
               <div className="checkout__wrapper">
                 <h2 className="checkout__title">Shopping Cart</h2>
-                <a className="checkout__deslect">Deselect all items</a>
+                <a className="checkout__deselect">Deselect all items</a>
                 <p>Price</p>
                 <hr />
               </div>
-
               {basket.map((item) => (
                 <CartProps
                   key={item.id}

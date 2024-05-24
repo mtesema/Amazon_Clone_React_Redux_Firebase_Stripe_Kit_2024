@@ -1,44 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "./Style/Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { auth } from "../../Utility/firebase/firebase";
 import { useStateValue } from "../../Utility/StateProvider";
 
-function SignUp() {
+function SignIn() {
   const navigate = useNavigate();
   const [, dispatch] = useStateValue();
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const register = (e) => {
+  const location = useLocation();
+
+  const signIn = (e) => {
     e.preventDefault();
 
     auth
-      .createUserWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-
-        user
-          .updateProfile({
-            displayName: name,
-          })
-          .then(() => {
-            dispatch({
-              type: "SET_USER",
-              user: { name: user.displayName, email: user.email },
-            });
-            navigate("/");
-          })
-          .catch((error) => {
-            console.error("Error updating profile:", error.message);
-          });
+        dispatch({
+          type: "SET_USER",
+          user: { name: user.displayName, email: user.email },
+        });
+        navigate("/");
       })
-      .catch((error) => {
-        console.error("Error creating user:", error.message);
-        alert(error.message);
-      });
+      .catch((error) => alert(error.message));
   };
+
+
+   useEffect(() => {
+     if (location.state && location.state.email) {
+       setEmail(location.state.email); // Set email from location state
+     }
+   }, [location.state]);
+
+
 
   return (
     <div className="login">
@@ -51,22 +48,10 @@ function SignUp() {
       </Link>
 
       <div className="login__container">
-        <h1>Create account</h1>
+        <h1>Sign in</h1>
         <form>
-          <h5>Your name</h5>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-
-          <h5>E-mail</h5>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
+          <h5>{email}</h5>
+          
           <h5>Password</h5>
           <input
             type="password"
@@ -76,7 +61,7 @@ function SignUp() {
 
           <button
             type="submit"
-            onClick={register}
+            onClick={signIn}
             className="login__signInButton"
           >
             Continue
@@ -88,15 +73,12 @@ function SignUp() {
           Interest-Based Ads Notice.
         </p>
         <hr />
-        Buying for work?
-        <a href="">Create a free business account</a>
-        <hr />
         <p>
-          Already have an account <Link to="/login">Sign in</Link>
+          <Link to="/signup">Create your Amazon Account</Link>
         </p>
       </div>
     </div>
   );
 }
 
-export default SignUp;
+export default SignIn;
