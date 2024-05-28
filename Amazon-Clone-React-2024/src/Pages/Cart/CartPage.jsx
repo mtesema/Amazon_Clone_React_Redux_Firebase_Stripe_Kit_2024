@@ -5,8 +5,8 @@ import { useStateValue } from "../../Utility/StateProvider";
 import Includes from "../../Includes/Includes";
 import { getBasketTotal } from "../../Utility/Reducer";
 import CartProps from "./CartProps";
-import { formatCurrency } from "../../Utility/formatCurrency ";
-import { IoLogoCapacitor } from "react-icons/io5";
+import { formatCurrency } from "../../Utility/formatCurrency";
+import EmptyCartPage from "./EmptyCartPage";
 
 function CartPage() {
   const [{ basket, user }] = useStateValue();
@@ -17,6 +17,14 @@ function CartPage() {
   const firstName = user?.displayName
     ? user.displayName.split(" ")[0]
     : "Guest";
+
+  if (basket.length === 0) {
+    return (
+      <Includes>
+        <EmptyCartPage />
+      </Includes>
+    );
+  }
 
   return (
     <Includes>

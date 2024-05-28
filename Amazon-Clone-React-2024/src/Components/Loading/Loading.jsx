@@ -8,10 +8,10 @@ function Loading() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh" 
+        height: "100vh",
       }}
     >
-      <PulseLoader color="#36d7b7" />
+      <PulseLoader color="#FAD815" />
     </div>
   );
 }

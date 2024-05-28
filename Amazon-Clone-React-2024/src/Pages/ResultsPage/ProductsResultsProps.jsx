@@ -2,14 +2,10 @@ import React, { useContext } from "react";
 import "./Style/ResultsPage.css";
 import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
-import {formatPrice} from '../../Utility/formatCurrency '
+import { formatPrice } from "../../Utility/formatCurrency";
 import { StateContext } from "../../Utility/StateProvider";
 
-
 function ProductsResultsProps({ data }) {
-
-   
-
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) {
       return text;
@@ -17,11 +13,10 @@ function ProductsResultsProps({ data }) {
     return text.substring(0, maxLength) + "...";
   };
 
-  const [state, dispatch] = useContext(StateContext)
-  console.log(state)
+  const [state, dispatch] = useContext(StateContext);
+  console.log(state);
 
-
-  const addToCartHandlet = () =>{
+  const addToCartHandlet = () => {
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
@@ -30,15 +25,12 @@ function ProductsResultsProps({ data }) {
         image: data.image,
         price: data.price,
         rating: data.rating,
-        description: data.description
+        description: data.description,
       },
     });
-  }
+  };
 
-
-
-  
-  const { title, name, image, description, rating, price,id } = data;
+  const { title, name, image, description, rating, price, id } = data;
 
   return (
     <div className="category_result_container">

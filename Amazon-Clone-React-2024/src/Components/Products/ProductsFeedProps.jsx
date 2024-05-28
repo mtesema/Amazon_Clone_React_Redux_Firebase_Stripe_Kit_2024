@@ -3,7 +3,7 @@ import Rating from "@mui/material/Rating";
 
 import "./Style/ProductsFeed.css";
 import { Link } from "react-router-dom";
-import {formatPrice} from '../../Utility/formatCurrency '
+import { formatPrice } from "../../Utility/formatCurrency";
 import { StateContext } from "../../Utility/StateProvider";
 
 function ProductsFeedProps({ product }) {
@@ -16,7 +16,7 @@ function ProductsFeedProps({ product }) {
 
   const [state, dispatch] = useContext(StateContext);
 
-  const addToCartHandlet = () =>{
+  const addToCartHandlet = () => {
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
@@ -25,11 +25,10 @@ function ProductsFeedProps({ product }) {
         image: product.image,
         price: product.price,
         rating: product.rating,
-        description: product.description
+        description: product.description,
       },
     });
-  }
-
+  };
 
   return (
     <div className="Product_Feed_Container">

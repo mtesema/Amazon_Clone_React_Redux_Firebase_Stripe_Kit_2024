@@ -6,7 +6,7 @@ import "./Style/ProductDetailPage.css";
 import Rating from "@mui/material/Rating";
 import Loading from "../../Components/Loading/Loading";
 import { StateContext } from "../../Utility/StateProvider";
-import { formatPrice } from "../../Utility/formatCurrency ";
+import { formatPrice } from "../../Utility/formatCurrency";
 
 function ProductDetailPage() {
   const [product, setProduct] = useState({});

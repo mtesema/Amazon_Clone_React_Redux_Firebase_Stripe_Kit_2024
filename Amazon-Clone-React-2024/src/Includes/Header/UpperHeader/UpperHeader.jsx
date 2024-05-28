@@ -10,40 +10,46 @@ import { StateContext } from "../../../Utility/StateProvider";
 import { auth } from "../../../Utility/firebase/firebase";
 
 function Header() {
-  const Navigate = useNavigate();
-  const [{ basket, user }] = useContext(StateContext);
+  const navigate = useNavigate();
+  const [{ basket, user }, dispatch] = useContext(StateContext);
 
   const firstName = user?.displayName
     ? user.displayName.split(" ")[0]
-    : "Guest";
-
+    : "Sign in";
 
   const HomePageClickHandle = () => {
-    Navigate("/");
+    navigate("/");
   };
 
   const CartPageClickHandle = () => {
-    Navigate("/cart");
+    navigate("/cart");
   };
 
-  const handleSelectChange = (event) => {
-    const selectedOption = event.target.value;
+ const handleSelectChange = (event) => {
+   const selectedOption = event.target.value;
 
-    if (selectedOption === "profile") {
-      Navigate("/signup");
-    } else if (selectedOption === "login") {
-      Navigate("/login");
-    } else if (selectedOption === "logout") {
-      auth
-        .signOut()
-        .then(() => {
-          Navigate("/signup");
-        })
-        .catch((error) => {
-          console.error("Error signing out:", error.message);
-        });
-    }
-  };
+   if (selectedOption === "profile") {
+     navigate("/signup");
+   } else if (selectedOption === "login") {
+     navigate("/login");
+   } else if (selectedOption === "logout") {
+     auth
+       .signOut()
+       .then(() => {
+         dispatch({
+           type: "EMPTY_BASKET",
+         });
+         dispatch({
+           type: "SET_USER",
+           user: null,
+         });
+         navigate("/signup");
+       })
+       .catch((error) => {
+         console.error("Error signing out:", error.message);
+       });
+   }
+ };
 
   return (
     <section>
@@ -71,7 +77,7 @@ function Header() {
           <select name="" id="">
             <option value="">All</option>
           </select>
-
+      
           <input type="text" placeholder="Search Amazon" />
           <div className="nav_search_icon">
             <FaSearch size={20} />

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
   const emailRef = useRef(null);
+  
 
   // Function to handle email capture and navigation
   const handleEmailSubmit = (e) => {

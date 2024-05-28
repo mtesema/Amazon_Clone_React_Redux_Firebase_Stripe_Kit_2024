@@ -119,3 +119,13 @@
   margin-top: 10px;
   border-color: darkgray;
 }
+
+.error_message{
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  margin-left: 5px; 
+  
+}

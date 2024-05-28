@@ -9,25 +9,32 @@ function SignIn() {
   const [, dispatch] = useStateValue();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("")
 
   const location = useLocation();
 
-  const signIn = (e) => {
-    e.preventDefault();
+const signIn = async (e) => {
+  e.preventDefault();
 
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        dispatch({
-          type: "SET_USER",
-          user: { name: user.displayName, email: user.email },
-        });
-        navigate("/");
-      })
-      .catch((error) => alert(error.message));
-  };
+  try {
+    const userCredential = await auth.signInWithEmailAndPassword(
+      email,
+      password
+    );
+    const user = userCredential.user;
 
+    // Update the user state immediately after sign-in
+    dispatch({
+      type: "SET_USER",
+      user: { name: user.displayName, email: user.email },
+    });
+
+    // Navigate to the home page or desired route
+    navigate("/");
+  } catch (error) {
+    setError(error.message);
+  }
+};
 
    useEffect(() => {
      if (location.state && location.state.email) {
@@ -72,6 +79,7 @@ function SignIn() {
           Sale. Please see our Privacy Notice, our Cookies Notice and our
           Interest-Based Ads Notice.
         </p>
+        <small className="error_message">{error}</small>
         <hr />
         <p>
           <Link to="/signup">Create your Amazon Account</Link>

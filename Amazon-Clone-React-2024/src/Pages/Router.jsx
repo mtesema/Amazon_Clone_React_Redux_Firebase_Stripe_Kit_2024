@@ -10,17 +10,19 @@ import ProductDetailPage from './ProductDetail/ProductDetailPage'
 import Signin from './AuthPage/Signin'
 import Login from './AuthPage/Login'
 import SignUp from './AuthPage/Signup'
-import { useStateValue } from '../Utility/StateProvider'
-import { auth } from '../Utility/firebase/firebase'
+import ErrorPage from './ErrorPage/ErrorPage'
+import SuccessPage from './SuccessPage/SuccessPage'
 
 
 function Routing () {
   return (
     <Router>
       <Routes>
+        <Route path="*" element={<ErrorPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/account" element={<LoginPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/success" element={<SuccessPage />} />
         <Route path="/orders" element={<OrdersPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
@@ -28,7 +30,6 @@ function Routing () {
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/category/:categoryName" element={<ResultsPage />} />
         <Route path="/products/:productId" element={<ProductDetailPage />} />
-        <Route path="*" element={<HomePage />} />
       </Routes>
     </Router>
   );
