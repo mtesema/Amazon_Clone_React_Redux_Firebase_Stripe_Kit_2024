@@ -25,6 +25,7 @@
     "express": "^4.19.2",
     "firebase": "^10.12.1",
     "firebase-admin": "^12.1.1",
+    "git-filter-repo": "^0.0.30",
     "intl": "^1.2.5",
     "latest-version": "^9.0.0",
     "micro": "^10.0.1",
