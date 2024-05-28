@@ -15,6 +15,7 @@ dist-ssr
 # .gitignore
 .DS_Store
 
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -27,5 +28,3 @@ dist-ssr
 *.sw?
 *.env
 
-# Service account key
-/Users/miket/Documents/EvangadiCLass /Projects/Amazon_Clone_React_Redux_Firebase_Stripe_Kit_2024/Amazon_Clone_React_Redux_Firebase_Stripe_Kit_2024/Amazon-Clone-React-2024/serviceAccountKey.json
