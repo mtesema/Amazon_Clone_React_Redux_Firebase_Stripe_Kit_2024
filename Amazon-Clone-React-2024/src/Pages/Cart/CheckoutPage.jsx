@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Style/Subtotal.css";
 import axios from "axios";
 import { useStateValue } from "../../Utility/StateProvider";
@@ -8,31 +8,36 @@ import { formatCurrency } from "../../Utility/formatCurrency";
 import { loadStripe } from "@stripe/stripe-js";
 import Loading from "../../Components/Loading/Loading";
 
-// Access the environment variable
-const { VITE_STRIPE_PUBLIC_KEY } = import.meta.env;
-const stripePromise = loadStripe(VITE_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
-axios.defaults.baseURL = "http://localhost:4242"; // Set the base URL for axios
+axios.defaults.baseURL = "http://localhost:4242";
 
-function Subtotal() {
+function CheckoutPage() {
   const navigate = useNavigate();
   const [{ basket, user }] = useStateValue();
-  console.log("number of items in basket >>> ", basket?.length);
-  console.log("current user name>>>", user?.displayName);
-  console.log("current user email>>>", user?.email);
+  const [loading, setLoading] = useState(false);
+
   const basketTotal = getBasketTotal(basket);
   const formattedTotal = formatCurrency(basketTotal);
 
   const handleCheckout = async (event) => {
     event.preventDefault();
-    const stripe = await stripePromise;
+    setLoading(true);
+
+    if (!basket || !user || !user.email) {
+      console.error("Missing basket items or user data");
+      setLoading(false);
+      return;
+    }
 
     try {
       const checkoutSession = await axios.post("/create-checkout-session", {
         items: basket,
+        user:user,
         email: user.email,
       });
 
+      const stripe = await stripePromise;
       const result = await stripe.redirectToCheckout({
         sessionId: checkoutSession.data.id,
       });
@@ -42,6 +47,8 @@ function Subtotal() {
       }
     } catch (error) {
       console.error("Error creating checkout session:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -52,16 +59,18 @@ function Subtotal() {
       </p>
       <small className="subtotal__gift">
         <input type="checkbox" /> This order contains a gift
-      </small>  
+      </small>
       {user === null ? (
         <button onClick={() => navigate("/login")}>Sign in to Checkout</button>
       ) : (
-        <form onSubmit={handleCheckout} >
-          <button type="submit">Checkout</button>
+        <form onSubmit={handleCheckout}>
+          <button type="submit" disabled={loading}>
+            {loading ? <Loading /> : "Checkout"}
+          </button>
         </form>
       )}
     </div>
   );
 }
 
-export default Subtotal;
+export default CheckoutPage;

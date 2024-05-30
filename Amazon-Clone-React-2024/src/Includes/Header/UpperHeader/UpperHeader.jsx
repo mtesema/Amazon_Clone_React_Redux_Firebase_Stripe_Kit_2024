@@ -25,6 +25,10 @@ function Header() {
     navigate("/cart");
   };
 
+  const OrderPageClickHandler = () =>{
+    navigate("/orders")
+  }
+
  const handleSelectChange = (event) => {
    const selectedOption = event.target.value;
 
@@ -108,7 +112,7 @@ function Header() {
             </select>
           </div>
 
-          <div className="account_list_wrapper">
+          <div onClick={OrderPageClickHandler} className="account_list_wrapper">
             <div className="nav_top_discription text-white">Returns </div>
             <div className="nav_bottom_discription">& Orders</div>
           </div>

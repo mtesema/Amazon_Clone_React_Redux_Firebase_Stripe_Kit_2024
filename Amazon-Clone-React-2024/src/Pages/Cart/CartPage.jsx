@@ -1,12 +1,13 @@
 import React from "react";
 import "./Style/Cart.css";
-import Subtotal from "./Subtotal";
+import CheckoutPage from "./CheckoutPage";
 import { useStateValue } from "../../Utility/StateProvider";
 import Includes from "../../Includes/Includes";
 import { getBasketTotal } from "../../Utility/Reducer";
 import CartProps from "./CartProps";
 import { formatCurrency } from "../../Utility/formatCurrency";
 import EmptyCartPage from "./EmptyCartPage";
+
 
 function CartPage() {
   const [{ basket, user }] = useStateValue();
@@ -59,7 +60,7 @@ function CartPage() {
           </div>
         </div>
         <div className="checkout__right">
-          <Subtotal />
+          <CheckoutPage />
         </div>
       </div>
     </Includes>
