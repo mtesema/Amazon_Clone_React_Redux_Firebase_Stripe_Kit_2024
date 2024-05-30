@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import { StateProvider } from './Utility/StateProvider'
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import { StateProvider } from "./Utility/StateProvider.jsx";
 import reducer, { initialState } from "./Utility/Reducer.jsx";
-import './index.css'
+import "./index.css";
 
 // Load environment variables
 // const { VITE_STRIPE_PUBLIC_KEY } = import.meta.env;
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

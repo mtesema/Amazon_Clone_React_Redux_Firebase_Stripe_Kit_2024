@@ -4,83 +4,111 @@
   background-color: #eaeded !important;
   gap: 30px;
   width: 100%;
-  height: auto;
-  margin-top: 0;
+  padding: 20px; /* Added padding for better spacing on smaller screens */
 }
 
-.empty-cart-greeting  {
-margin-left: 60px;
-margin-top: 20px;
-margin-bottom: 20px;
-font-size: 30px;
-font-weight: 700;
-
+.empty-cart-greeting {
+  margin-left: 20px; /* Reduced margin for smaller screens */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 24px; /* Slightly reduced font size for smaller screens */
+  font-weight: 700;
 }
 
 .empty-cart-container {
   display: flex;
+  flex-direction: column; /* Changed to column layout for smaller screens */
   background-color: white;
-  flex-direction: row;
   margin-bottom: 20px;
-  background-color: #fff;
   overflow: auto;
-  padding: 20px 0 15px 0;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-top: 120px;
+  padding: 20px;
 }
+
 .empty-cart-container img {
-  width: 400px;
-  height: 400px;
-  object-fit: contain;
-  margin-right: 100px;
-  margin-left: 100px;
+  width: 100%; /* Fluid image width */
+  max-width: 400px; /* Limited max-width for large screens */
+  height: auto; /* Maintain aspect ratio */
   margin-top: 20px;
   margin-bottom: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.empty-cart-text-container{
+.empty-cart-text-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  text-align: center; /* Center text for smaller screens */
 }
 
-.empty-cart-buttons{
+.empty-cart-buttons {
   display: flex;
-  gap: 50px;
+  flex-direction: column; /* Stacked buttons on smaller screens */
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.empty-cart-text-container a{
-
+.empty-cart-text-container a {
   text-decoration: none;
   color: rgb(3, 92, 128);
-  font-size: 20px;
+  font-size: 18px; /* Slightly reduced font size for smaller screens */
 }
 
-
-.signin-button button{
-  background-color: #F7CA01;
+.signin-button button {
+  background-color: #f7ca01;
   color: black;
-  font-size: 20px;
+  font-size: 18px; /* Slightly reduced font size for smaller screens */
   font-weight: bold;
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
   cursor: pointer;
-
 }
 
-.signup-button button{
+.signup-button button {
   background-color: #edece9;
   color: black;
-  font-size: 20px;
+  font-size: 18px; /* Slightly reduced font size for smaller screens */
   font-weight: bold;
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
   cursor: pointer;
+}
 
+@media screen and (min-width: 768px) {
+  .empty-cart-greeting {
+    font-size: 30px;
+  }
+
+  .empty-cart-container {
+    flex-direction: row; /* Revert to row layout for larger screens */
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 120px;
+    padding: 30px;
+  }
+
+  .empty-cart-container img {
+    width: 400px;
+    height: 400px;
+  }
+
+  .empty-cart-text-container {
+    text-align: left; /* Align text to the left for larger screens */
+  }
+
+  .empty-cart-buttons {
+    flex-direction: row; /* Inline buttons for larger screens */
+    margin-top: 30px;
+  }
+
+  .empty-cart-text-container a {
+    font-size: 20px;
+  }
+
+  .signin-button button,
+  .signup-button button {
+    font-size: 20px;
+  }
 }

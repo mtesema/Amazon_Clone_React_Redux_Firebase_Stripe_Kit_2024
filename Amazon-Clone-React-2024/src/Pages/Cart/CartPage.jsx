@@ -8,10 +8,8 @@ import CartProps from "./CartProps";
 import { formatCurrency } from "../../Utility/formatCurrency";
 import EmptyCartPage from "./EmptyCartPage";
 
-
 function CartPage() {
   const [{ basket, user }] = useStateValue();
-  console.log(user);
 
   const basketTotal = getBasketTotal(basket);
 
@@ -28,42 +26,52 @@ function CartPage() {
   }
 
   return (
-    <Includes>
-      <div className="checkout">
-        <div>
-          <h3 className="checkout_account">Hello, {firstName}</h3>
+    <div className="checkout">
+      <Includes>
+        <div className="main-container">
           <div className="checkout__left">
-            <div>
-              <div className="checkout__wrapper">
-                <h2 className="checkout__title">Shopping Cart</h2>
-                <a className="checkout__deselect">Deselect all items</a>
-                <p>Price</p>
-                <hr />
+            <div className="checkout__content">
+              <h3 className="checkout_account">Hello, {firstName}</h3>
+              <h2 className="checkout__title">Shopping Cart</h2>
+              <a className="checkout__deselect">Deselect all items</a>
+           
+              <hr />
+
+              <div className="checkout__items">
+                {basket.map((item) => (
+                  <div key={item.id} className="cart-item">
+                    <img
+                      className="cart-item__image"
+                      src={item.image}
+                      alt={item.title}
+                    />
+                    <div className="cart-item__info">
+                      <h3 className="cart-item__title">{item.title}</h3>
+                      <p className="cart-item__price">
+                        Price: <strong>{formatCurrency(item.price)}</strong>
+                      </p>
+                      <p className="cart-item__quantity">
+                        Quantity: {item.quantity}
+                      </p>
+                      <p className="cart-item__description">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              {basket.map((item) => (
-                <CartProps
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  image={item.image}
-                  price={item.price}
-                  rating={item.rating}
-                  quantity={item.quantity}
-                  description={item.description}
-                />
-              ))}
             </div>
-            <hr />
+
+            <div className="checkout_subtotal">
+              Subtotal: <strong>{formatCurrency(basketTotal)}</strong>
+            </div>
           </div>
-          <div className="checkout_subtotal">
-            Subtotal :&nbsp; <strong>{formatCurrency(basketTotal)}</strong>
+          <div className="checkout__right">
+            <CheckoutPage />
           </div>
         </div>
-        <div className="checkout__right">
-          <CheckoutPage />
-        </div>
-      </div>
-    </Includes>
+      </Includes>
+    </div>
   );
 }
 

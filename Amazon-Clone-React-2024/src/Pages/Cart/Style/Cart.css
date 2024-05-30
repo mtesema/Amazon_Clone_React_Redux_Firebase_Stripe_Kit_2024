@@ -1,116 +1,140 @@
+/* Cart.css */
+
+/* General styles */
 .checkout {
-  display: flex;
-  flex-direction: column;
-  background-color: #eaeded;
-  gap: 30px;
-  width: 100%;
-  height: auto;
-  margin-top: 0;
+  background-color: #f7f7f7;
 }
-.checkout hr {
-  width: 100%;
-  height: 1px;
-  margin-top: 0;
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 100px auto 0; /* Adjusted margin-top to center the cart on the page */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Left side content */
+.checkout__left {
+  flex: 0.7;
+  padding: 20px;
+}
+
+.checkout__content {
+  margin-bottom: 20px;
 }
 
 .checkout_account {
-  position: relative;
-  top: 100px;
-  left: 30px;
-}
-
-.checkout__left {
-  position: relative;
-  top: 100px;
-  left: 100px;
-}
-
-.checkout_subtotal {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  height: 70px;
-
-  text-align: center;
-  top: 30px;
-  left: 90px;
-  font-size: 20px;
-  margin-bottom: 0;
-  margin-top: 0;
-  z-index: 5;
-
-  border-top: rgb(212, 212, 212) solid 0.4px;
-  margin-right: 50px;
-  margin-left: 60px;
-}
-
-.checkout__right {
-  position: relative;
-  top: 180px;
-  left: 80px;
-}
-
-.checkout__wrapper {
-  width: 1300px;
-  height: auto;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-bottom: 50px;
-  margin-right: 10px;
-}
-
-.checkout__wrapper p {
-  font-size: 16px;
-  margin-bottom: 0;
-  text-decoration: none;
-  color: rgb(85, 87, 87);
-  margin-left: auto;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .checkout__title {
-  margin-right: 10px;
-  padding-left: 10px;
-  padding-top: 0;
-  font-size: 36px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  color: #333;
 }
 
 .checkout__deselect {
-  font-size: 20px;
-  margin-left: 10px;
-  margin-top: 0;
-  padding-top: 0;
+  font-size: 14px;
+  color: #007185;
   cursor: pointer;
+  margin-bottom: 15px;
+  display: block;
   text-decoration: none;
-  color: rgb(3, 92, 128);
 }
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .checkout {
-    flex-direction: row; /* Row layout for medium devices */
-    padding: 10px;
-  }
-
-  .checkout__wrapper {
-    margin-top: 30px;
-    padding: 30px;
-  }
+.checkout__items {
+  margin-top: 10px;
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .checkout__wrapper {
-    margin-top: 50px;
-    padding: 40px;
-  }
+/* Individual item */
+.cart-item {
+  display: flex;
+  align-items: center; /* Center align items vertically */
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  .checkout__wrapper {
-    padding: 50px;
+.cart-item__image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.cart-item__info {
+  flex: 1;
+}
+
+.cart-item__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.cart-item__price {
+  font-size: 16px;
+  color: #007185;
+}
+
+.cart-item__quantity {
+  font-size: 14px;
+  color: #666;
+}
+
+.cart-item__description {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+  /* Allow descriptions to wrap */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Subtotal section */
+.checkout__right {
+  flex: 0.3;
+  padding: 20px;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  min-width: 250px; /* Adjusted min-width for smaller screens */
+}
+
+.checkout_subtotal {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-right: 5px;
+  border-top: 3px solid #ddd;
+  text-align: right;
+}
+
+.checkout_subtotal strong {
+  color: #007185;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center; /* Center align items vertically on smaller screens */
+  }
+
+  .checkout__left,
+  .checkout__right {
+    width: 100%;
+  }
+
+  .checkout__right {
+    border-left: none;
+    padding-top: 20px;
+    margin-left: 50%;
   }
 }
