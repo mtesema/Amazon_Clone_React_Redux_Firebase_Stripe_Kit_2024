@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Style/Subtotal.css";
+import "./Style/CheckOutPage.css";
 import axios from "axios";
 import { useStateValue } from "../../Utility/StateProvider";
 import { getBasketTotal } from "../../Utility/Reducer";
