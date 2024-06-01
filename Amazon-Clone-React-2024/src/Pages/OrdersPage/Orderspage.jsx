@@ -3,10 +3,13 @@ import db from "../../Utility/firebase/firebase";
 import { useStateValue } from "../../Utility/StateProvider";
 import "./Style/OrdersPage.css"; // Import your CSS file
 import Includes from "../../Includes/Includes";
+import { useRef } from "react";
 
 const OrdersPage = () => {
   const [orders, setOrders] = useState([]);
-  const [{ basket, user }] = useStateValue();
+  const [{ user }] = useStateValue();
+
+
 
   const firstName = user?.displayName
     ? user.displayName.split(" ")[0]
@@ -46,6 +49,9 @@ const truncateDescription = (description, maxLength) => {
   if (!user) {
     return <div>Please log in to see your orders.</div>;
   }
+
+ 
+
 
   return (
     <Includes>

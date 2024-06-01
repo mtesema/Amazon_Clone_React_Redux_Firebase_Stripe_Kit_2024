@@ -45,7 +45,10 @@ function CartProps({ id, image, title, price, rating, quantity, description }) {
 
   return (
     <div className="checkoutProduct">
-      <img className="checkoutProduct__image" src={image} alt={title} />
+      <div className="checkoutProduct__image">
+        <img src={image} alt={title} />
+      </div>
+
       <div className="checkoutProduct__info">
         <div className="checkoutProduct__details">
           <p className="checkoutProduct__title">{title}</p>
@@ -53,7 +56,7 @@ function CartProps({ id, image, title, price, rating, quantity, description }) {
           <p className="check-out-instock"> In Stock </p>
           <div className="check-out-prime">
             <img
-              src="../../../public/NicePng_abominable-snowman-png_1159983.png" 
+              src="../../../public/NicePng_abominable-snowman-png_1159983.png"
               alt="Prime"
             />
             <small>Two-day</small>

@@ -54,7 +54,6 @@ function CartPage() {
                   ))}
                 </div>
               </div>
-              <hr />
               <div className="checkout_subtotal">
                 Subtotal :&nbsp; <strong>{formatCurrency(basketTotal)}</strong>
               </div>
