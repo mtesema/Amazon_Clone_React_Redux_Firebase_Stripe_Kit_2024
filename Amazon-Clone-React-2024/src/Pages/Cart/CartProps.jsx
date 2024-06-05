@@ -2,7 +2,7 @@ import React from "react";
 import "./Style/CartProps.css";
 import { useStateValue } from "../../Utility/StateProvider";
 import Rating from "@mui/material/Rating";
-
+import  images  from "../../Resource/images";
 function CartProps({ id, image, title, price, rating, quantity, description }) {
   const [{ basket }, dispatch] = useStateValue();
 
@@ -55,10 +55,7 @@ function CartProps({ id, image, title, price, rating, quantity, description }) {
           <p className="checkoutProduct__description">{description}</p>
           <p className="check-out-instock"> In Stock </p>
           <div className="check-out-prime">
-            <img
-              src="../../../public/NicePng_abominable-snowman-png_1159983.png"
-              alt="Prime"
-            />
+            <img src={images.primeLogo} alt="Prime" />
             <small>Two-day</small>
           </div>
           <small>

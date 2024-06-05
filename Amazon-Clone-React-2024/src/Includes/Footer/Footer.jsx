@@ -1,6 +1,7 @@
 import React from "react";
 import "./Style/Footer.css";
 import {useNavigate} from 'react-router-dom'
+import images from "../../Resource/images"
 
 
 function Footer() {
@@ -168,7 +169,7 @@ function Footer() {
         <div className="middle-footer">
           <div className="footer_icon">
             <div className="footer_logo">
-              <img src="../../../public/Amazonlogo.png" alt="Amazon-Logo" />
+              <img src={images.amazon_footer_log} alt="Amazon-Logo" />
             </div>
             <div className="footer_lang">
               <select>

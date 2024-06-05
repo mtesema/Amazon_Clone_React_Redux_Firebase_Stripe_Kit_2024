@@ -4,6 +4,7 @@ import { useStateValue } from "../../Utility/StateProvider";
 import Includes from "../../Includes/Includes";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import images from "../../Resource/images"
 
 function EmptyCartPage() {
   const [{ user }] = useStateValue();
@@ -34,7 +35,7 @@ function EmptyCartPage() {
           )}
           <div className="empty-cart-img">
             <img
-              src="../../../public/kettle-desaturated._CB445243794_.svg"
+              src={images.empty_cart}
               alt=""
             />
           </div>
